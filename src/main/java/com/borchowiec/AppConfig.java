@@ -23,5 +23,4 @@ public class AppConfig {
                 shelves[y * COLS + x] = new Shelf(x + 1, y * 2, TILE_SIZE, y * COLS + x);
         return shelves;
     }
-
 }

@@ -13,6 +13,7 @@ import java.util.Random;
 public class Product {
     private final String name;
     private final Color color;
+    private final Font FONT = new Font("SansSerif", Font.BOLD, 7);
 
     public static final String[] ADJECTIVES = {
             "Long",
@@ -60,7 +61,7 @@ public class Product {
         g.fillRect(x, y, SIZE, SIZE);
         g.setColor(DETAILS_COLOR);
         g.drawRect(x, y, SIZE - 1, SIZE - 1);
-        g.setFont(new Font("SansSerif", Font.BOLD, 7));
+        g.setFont(FONT);
         g.drawString(name, x + 1, y + 20);
     }
 }

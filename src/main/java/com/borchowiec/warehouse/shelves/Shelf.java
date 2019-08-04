@@ -8,6 +8,7 @@ public class Shelf {
     private final int TILE_SIZE;
     private final int ID;
 
+    private final Font FONT = new Font("SansSerif", Font.PLAIN, 13);
     private final Color BG_COLOR = new Color(255, 199, 44);
     private final Color EDGE_COLOR = new Color(174, 132, 32);
     private final Color FONT_COLOR = new Color(255, 232, 101);
@@ -37,14 +38,16 @@ public class Shelf {
         g.setColor(BG_COLOR);
         g.fillRect(X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH,
                 TILE_SIZE - 2 * EDGE_WIDTH, TILE_SIZE - EDGE_WIDTH);
-        g.setColor(LABEL_COLOR);
-        g.fillRect(X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH, 15, 15);
-        g.setColor(FONT_COLOR);
-        g.drawString(String.valueOf(ID), X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH + 11);
 
         if (product != null) {
             int space = (TILE_SIZE - product.SIZE) / 2;
             product.paint(g, X * TILE_SIZE + space, Y * TILE_SIZE + space);
         }
+
+        g.setColor(LABEL_COLOR);
+        g.fillRect(X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH, 15, 15);
+        g.setColor(FONT_COLOR);
+        g.setFont(FONT);
+        g.drawString(String.valueOf(ID), X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH + 11);
     }
 }

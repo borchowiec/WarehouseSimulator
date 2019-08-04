@@ -1,6 +1,7 @@
 package com.borchowiec.warehouse;
 
 import com.borchowiec.warehouse.shelves.Shelf;
+import com.borchowiec.warehouse.transporter.Transporter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,9 @@ class WarehouseView {
     public void paint(Graphics2D g) {
         g.setColor(BG_COLOR);
         g.fillRect(0, 0, warehouseModel.WIDTH, warehouseModel.HEIGHT);
+
+        for (Transporter t : warehouseModel.TRANSPORTERS)
+            t.Paint(g);
 
         for (Shelf shelf : warehouseModel.SHELVES)
             shelf.paint(g);
