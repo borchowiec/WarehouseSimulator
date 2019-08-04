@@ -1,12 +1,21 @@
 package com.borchowiec.warehouse.shelves;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.awt.*;
 
+@Component
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class Shelf {
-    private final int X;
-    private final int Y;
+    private int X;
+    private int Y;
     private final int TILE_SIZE;
     private final int ID;
+
+    private static int nextId = 0;
 
     private final Font FONT = new Font("SansSerif", Font.PLAIN, 13);
     private final Color BG_COLOR = new Color(255, 199, 44);
@@ -17,11 +26,17 @@ public class Shelf {
 
     private Product product;
 
-    public Shelf(int x, int y, int tileSize, int id) {
-        X = x;
-        Y = y;
+    public Shelf(@Value("${warehouse.tile.size}") int tileSize) {
         TILE_SIZE = tileSize;
-        ID = id;
+        ID = nextId++;
+    }
+
+    public void setX(int x) {
+        X = x;
+    }
+
+    public void setY(int y) {
+        Y = y;
     }
 
     public Product getProduct() {
