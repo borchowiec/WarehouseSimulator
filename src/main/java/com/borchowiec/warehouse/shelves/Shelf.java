@@ -14,11 +14,21 @@ public class Shelf {
     private final Color LABEL_COLOR = new Color(229, 176, 41);
     private final int EDGE_WIDTH = 5;
 
+    private Product product;
+
     public Shelf(int x, int y, int tileSize, int id) {
         X = x;
         Y = y;
         TILE_SIZE = tileSize;
         ID = id;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public void paint(Graphics2D g) {
@@ -31,5 +41,10 @@ public class Shelf {
         g.fillRect(X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH, 15, 15);
         g.setColor(FONT_COLOR);
         g.drawString(String.valueOf(ID), X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH + 11);
+
+        if (product != null) {
+            int space = (TILE_SIZE - product.SIZE) / 2;
+            product.paint(g, X * TILE_SIZE + space, Y * TILE_SIZE + space);
+        }
     }
 }

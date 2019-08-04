@@ -5,12 +5,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainController {
     public static void main(String[] args) {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        Warehouse warehouse = context.getBean("warehouse", Warehouse.class);
+        final Warehouse warehouse = context.getBean("warehouse", Warehouse.class);
 
         //creating main frame
         JFrame frame = new JFrame();
@@ -21,5 +23,12 @@ public class MainController {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        Timer timer = new Timer(10, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                warehouse.repaint();
+            }
+        });
+        timer.start();
     }
 }
