@@ -1,29 +1,58 @@
 package com.borchowiec.warehouse.transporter;
 
+import com.borchowiec.warehouse.jobs.Job;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class Transporter {
-    private volatile double x;
-    private volatile double y;
+    private Transporter transporter = this;
+
+    private double x;
+    private double y;
+    private double rotation = 0;
     private final double SIZE;
+    private final double SPEED;
+    private final int DELAY;
 
     private Color BG_COLOR = new Color(217, 159, 46);
     private Color BORDER_COLOR = new Color(255, 199, 44);
     private Color DETAILS_COLOR = new Color(153, 1, 0);
-
     private final int BORDER_WIDTH = 4;
 
-    public Transporter(@Value("${warehouse.transporter.size}") int transportersSize) {
+    private Job job;
+
+    public Transporter(@Value("${warehouse.transporter.size}") int transportersSize,
+                       @Value("${warehouse.transporter.speed}") double speed,
+                       @Value("${warehouse.transporter.delay}") int delay) {
         SIZE = transportersSize;
+        SPEED = speed;
+        DELAY = delay;
+        job = new Job(this);
+
+        new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    boolean done = job.doJob();
+                    if (done)
+                        job = new Job(transporter);
+                    try {
+                        sleep(DELAY);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
     }
 
     public void setX(double x) {
@@ -36,17 +65,56 @@ public class Transporter {
 
     public void Paint(Graphics2D g) {
         Rectangle2D rect = new Rectangle2D.Double(x, y, SIZE, SIZE);
-        Line2D line = new Line2D.Double(x + 2, y - 1, x + SIZE - 3, y - 1);
+        Line2D line = new Line2D.Double(x - 1, y + 2, x - 1, y + SIZE - 3);
+        AffineTransform tx = new AffineTransform();
+        tx.rotate(Math.toRadians(rotation), rect.getCenterX(), rect.getCenterY());
 
         g.setColor(BORDER_COLOR);
-        g.fill(rect);
+        g.fill(tx.createTransformedShape(rect));
 
         g.setColor(BG_COLOR);
         rect.setRect(rect.getMinX() + BORDER_WIDTH / 2.0, rect.getMinY() + BORDER_WIDTH / 2.0,
                 SIZE - BORDER_WIDTH, SIZE - BORDER_WIDTH);
-        g.fill(rect);
+        g.fill(tx.createTransformedShape(rect));
 
         g.setColor(DETAILS_COLOR);
-        g.draw(line);
+        g.draw(tx.createTransformedShape(line));
+    }
+
+    public boolean goTo(double destX, double destY) {
+        Rectangle2D rect = new Rectangle2D.Double(x, y, SIZE, SIZE);
+        double angle = Math.toDegrees(Math.atan2(rect.getCenterY() - destY, rect.getCenterX() - destX));
+        double aX = rect.getCenterX() - destX;
+        double aY = rect.getCenterY() - destY;
+        double distance = Math.sqrt(aX * aX + aY * aY);
+
+        if (rotation < -180)
+            rotation += 360;
+        else if (rotation >= 180)
+            rotation -= 360;
+
+        if (distance <= SPEED) {
+            x = destX - SIZE / 2.0;
+            y = destY - SIZE / 2.0;
+            return true;
+        }
+        else if (rotation != angle) {
+            if (Math.abs(rotation - angle) <= SPEED)
+                rotation = angle;
+            else if (rotation < angle) {
+                if (Math.abs(rotation - angle) < 180)
+                    rotation += SPEED;
+                else rotation -= SPEED;
+            } else {
+                if (Math.abs(rotation - angle) < 180)
+                    rotation -= SPEED;
+                else rotation += SPEED;
+            }
+        }
+        else {
+            x -= Math.cos(Math.toRadians(rotation)) * SPEED;
+            y -= Math.sin(Math.toRadians(rotation)) * SPEED;
+        }
+        return false;
     }
 }
