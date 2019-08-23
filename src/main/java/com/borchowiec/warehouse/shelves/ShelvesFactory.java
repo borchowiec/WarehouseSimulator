@@ -29,8 +29,10 @@ public class ShelvesFactory implements FactoryBean<List<Shelf>>, ApplicationCont
                 Shelf shelf = context.getBean("shelf", Shelf.class);
                 shelf.setX(x + 1);
                 shelf.setY(y * 2);
-                if (rand.nextBoolean())
+                if (rand.nextBoolean()) {
                     shelf.setProduct(context.getBean("product", Product.class));
+                    shelf.setStatus(ShelfStatus.HAS_PRODUCT);
+                }
                 list.add(shelf);
             }
         }

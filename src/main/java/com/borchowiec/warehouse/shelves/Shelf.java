@@ -7,13 +7,15 @@ import org.springframework.stereotype.Component;
 
 import java.awt.*;
 
+import static com.borchowiec.warehouse.shelves.ShelfStatus.*;
+
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class Shelf {
     private int X;
     private int Y;
     private final int TILE_SIZE;
-    private final int ID;
+    public final int ID;
 
     private static int nextId = 0;
 
@@ -25,8 +27,10 @@ public class Shelf {
     private final int EDGE_WIDTH = 5;
 
     private Product product;
+    private ShelfStatus status;
 
     public Shelf(@Value("${warehouse.tile.size}") int tileSize) {
+        status = EMPTY;
         TILE_SIZE = tileSize;
         ID = nextId++;
     }
@@ -39,12 +43,32 @@ public class Shelf {
         Y = y;
     }
 
+    public int getX() {
+        return X;
+    }
+
+    public int getY() {
+        return Y;
+    }
+
+    public double getCenterY() {
+        return (Y + 0.5) * TILE_SIZE;
+    }
+
     public Product getProduct() {
         return product;
     }
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public ShelfStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ShelfStatus status) {
+        this.status = status;
     }
 
     public void paint(Graphics2D g) {
@@ -64,5 +88,14 @@ public class Shelf {
         g.setColor(FONT_COLOR);
         g.setFont(FONT);
         g.drawString(String.valueOf(ID), X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH + 11);
+    }
+
+    @Override
+    public String toString() {
+        return "Shelf{" +
+                "ID=" + ID +
+                ", product=" + product +
+                ", status=" + status +
+                '}';
     }
 }

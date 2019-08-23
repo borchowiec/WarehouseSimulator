@@ -2,18 +2,15 @@ package com.borchowiec.warehouse.jobs.tasks;
 
 import com.borchowiec.warehouse.transporter.Transporter;
 
-public class GoToTask extends Task {
-
+public class GoHorizontallyTask extends Task {
     private double x;
-    private double y;
 
-    public GoToTask(double x, double y, Transporter transporter) {
+    public GoHorizontallyTask(Transporter transporter, double x) {
         super(transporter);
         this.x = x;
-        this.y = y;
     }
 
     public boolean doTask() {
-        return transporter.goTo(x, y);
+        return transporter.goTo(x, transporter.getCenterY());
     }
 }

@@ -1,20 +1,22 @@
 package com.borchowiec.warehouse.jobs;
 
-import com.borchowiec.warehouse.jobs.tasks.GoToTask;
+import com.borchowiec.warehouse.WarehouseModel;
+import com.borchowiec.warehouse.jobs.tasks.Task;
 import com.borchowiec.warehouse.transporter.Transporter;
 
-import java.util.Random;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class Job {
-    private Transporter transporter;
-    private GoToTask task;
+public abstract class Job {
+    protected Transporter transporter;
+    protected Queue<Task> tasks;
+    protected WarehouseModel warehouseModel;
 
-    public Job(Transporter transporter) {
+    public Job(Transporter transporter, WarehouseModel warehouseModel) {
         this.transporter = transporter;
-        task = new GoToTask(new Random().nextInt(1200), new Random().nextInt(750), transporter);
+        this.warehouseModel = warehouseModel;
+        tasks = new LinkedList<>();
     }
 
-    public boolean doJob() {
-        return task.doTask();
-    }
+    public abstract boolean doJob();
 }

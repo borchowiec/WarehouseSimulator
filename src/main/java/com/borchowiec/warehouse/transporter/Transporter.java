@@ -1,13 +1,18 @@
 package com.borchowiec.warehouse.transporter;
 
+import com.borchowiec.warehouse.WarehouseModel;
 import com.borchowiec.warehouse.jobs.Job;
+import com.borchowiec.warehouse.jobs.JobProducer;
+import com.borchowiec.warehouse.shelves.Product;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 
@@ -28,31 +33,44 @@ public class Transporter {
     private Color DETAILS_COLOR = new Color(153, 1, 0);
     private final int BORDER_WIDTH = 4;
 
+    private WarehouseModel warehouseModel;
     private Job job;
+    private ApplicationContext applicationContext;
+
+    private Arm arm;
+
+    private boolean isRunning = false;
 
     public Transporter(@Value("${warehouse.transporter.size}") int transportersSize,
                        @Value("${warehouse.transporter.speed}") double speed,
                        @Value("${warehouse.transporter.delay}") int delay) {
+
         SIZE = transportersSize;
         SPEED = speed;
         DELAY = delay;
-        job = new Job(this);
+        arm = new Arm();
+    }
 
-        new Thread() {
-            @Override
-            public void run() {
-                while (true) {
-                    boolean done = job.doJob();
-                    if (done)
-                        job = new Job(transporter);
-                    try {
-                        sleep(DELAY);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+    public void start() {
+        if (!isRunning) {
+            job = JobProducer.getJob(this, warehouseModel);
+
+            new Thread() {
+                @Override
+                public void run() {
+                    while (true) {
+                        boolean done = job.doJob();
+                        if (done)
+                            job = JobProducer.getJob(transporter, warehouseModel);
+                        try {
+                            sleep(DELAY);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            }
-        }.start();
+            }.start();
+        }
     }
 
     public void setX(double x) {
@@ -61,6 +79,14 @@ public class Transporter {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public double getCenterX() {
+        return x + SIZE / 2.0;
+    }
+
+    public double getCenterY() {
+        return y + SIZE / 2.0;
     }
 
     public void Paint(Graphics2D g) {
@@ -79,6 +105,8 @@ public class Transporter {
 
         g.setColor(DETAILS_COLOR);
         g.draw(tx.createTransformedShape(line));
+
+        arm.paint(g);
     }
 
     public boolean goTo(double destX, double destY) {
@@ -90,7 +118,7 @@ public class Transporter {
 
         if (rotation < -180)
             rotation += 360;
-        else if (rotation >= 180)
+        else if (rotation > 180)
             rotation -= 360;
 
         if (distance <= SPEED) {
@@ -116,5 +144,70 @@ public class Transporter {
             y -= Math.sin(Math.toRadians(rotation)) * SPEED;
         }
         return false;
+    }
+
+    public void setWarehouseModel(WarehouseModel warehouseModel) {
+        this.warehouseModel = warehouseModel;
+    }
+
+    public WarehouseModel getWarehouseModel() {
+        return warehouseModel;
+    }
+
+    public boolean propoundTheArm(double finalLength) {
+        return arm.propound(finalLength);
+    }
+
+    public void attachToTheArm(Product product) {
+        arm.attach(product);
+    }
+
+    public Product detachProduct() {
+        return arm.detach();
+    }
+
+    private class Arm {
+        private double length = 0;
+        private Color ARM_COLOR = new Color(0, 121, 153);
+        private final double RADIUS = 3;
+        private Product product;
+
+        public void paint(Graphics2D g) {
+            double centerX = getCenterX();
+            double centerY = getCenterY();
+
+            if (product != null)
+                product.paint(g, centerX - product.SIZE / 2.0, centerY - product.SIZE / 2.0 + length, rotation);
+
+
+            Line2D line = new Line2D.Double(centerX, centerY, centerX, centerY + length);
+            Ellipse2D circle = new Ellipse2D.Double(centerX - RADIUS, centerY - RADIUS + length,
+                    RADIUS*2, RADIUS*2);
+            g.setColor(ARM_COLOR);
+            g.draw(line);
+            g.fill(circle);
+        }
+
+        public boolean propound(double finalLength) {
+            if (Math.abs(finalLength - length) <= SPEED) {
+                length = finalLength;
+                return true;
+            }
+            if (finalLength > length)
+                length += SPEED;
+            else
+                length -= SPEED;
+            return false;
+        }
+
+        public void attach(Product product) {
+            this.product = product;
+        }
+
+        public Product detach() {
+            Product temp = product;
+            product = null;
+            return temp;
+        }
     }
 }

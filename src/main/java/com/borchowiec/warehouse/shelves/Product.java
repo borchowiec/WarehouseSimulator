@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
 @Component
@@ -47,7 +49,7 @@ public class Product {
 
     private Color DETAILS_COLOR = new Color(102, 102, 102);
 
-    final int SIZE;
+    public final int SIZE;
 
     public Product(@Value("${warehouse.product.size}") int size) {
         SIZE = size;
@@ -56,12 +58,20 @@ public class Product {
         color = COLORS[rand.nextInt(COLORS.length)];
     }
 
-    public void paint(Graphics2D g, int x, int y) {
+    public void paint(Graphics2D g, double x, double y) {
+        paint(g, x, y, 0);
+    }
+
+    public void paint(Graphics2D g, double x, double y, double angle) {
+        Rectangle2D rect = new Rectangle2D.Double(x, y, SIZE, SIZE);
+        AffineTransform tx = new AffineTransform();
+        tx.rotate(Math.toRadians(angle), rect.getCenterX(), rect.getCenterY());
+
         g.setColor(color);
-        g.fillRect(x, y, SIZE, SIZE);
+        g.fill(tx.createTransformedShape(rect));
+
+        rect = new Rectangle2D.Double(x, y, SIZE - 1, SIZE - 1);
         g.setColor(DETAILS_COLOR);
-        g.drawRect(x, y, SIZE - 1, SIZE - 1);
-        g.setFont(FONT);
-        g.drawString(name, x + 1, y + 20);
+        g.draw(tx.createTransformedShape(rect));
     }
 }
