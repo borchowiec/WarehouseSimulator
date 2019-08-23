@@ -1,6 +1,7 @@
 package com.borchowiec.warehouse.jobs;
 
 import com.borchowiec.warehouse.WarehouseModel;
+import com.borchowiec.warehouse.jobs.tasks.JobType;
 import com.borchowiec.warehouse.shelves.Shelf;
 import com.borchowiec.warehouse.transporter.Transporter;
 
@@ -9,13 +10,19 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import static com.borchowiec.warehouse.shelves.ShelfStatus.HAS_PRODUCT;
-import static com.borchowiec.warehouse.shelves.ShelfStatus.WAITING_FOR_EXPORT;
+import static com.borchowiec.warehouse.jobs.tasks.JobType.EXPORT;
+import static com.borchowiec.warehouse.jobs.tasks.JobType.IMPORT;
+import static com.borchowiec.warehouse.shelves.ShelfStatus.*;
 
 public class JobProducer {
-    public static Job getJob(Transporter transporter, WarehouseModel warehouseModel) {
+    private static volatile JobType previousJob = IMPORT;
+
+    public static synchronized Job getJob(Transporter transporter, WarehouseModel warehouseModel) {
         Job job;
-        job = getExportJob(transporter, warehouseModel);
+        if (previousJob == IMPORT)
+            job = getExportJob(transporter, warehouseModel);
+        else
+            job = getImportJob(transporter, warehouseModel);
 
         if (job == null)
             job = getImportJob(transporter, warehouseModel);
@@ -28,12 +35,11 @@ public class JobProducer {
                 .filter(shelf -> shelf.getStatus() == HAS_PRODUCT)
                 .collect(Collectors.toList());
 
-        System.out.println("    " + potentialShelves.size());
-
         if (potentialShelves.size() > 0) {
             Shelf shelf = potentialShelves.get(new Random().nextInt(potentialShelves.size()));
             shelf.setStatus(WAITING_FOR_EXPORT);
 
+            previousJob = EXPORT;
             return new ExportJob(transporter, warehouseModel, shelf);
         }
 
@@ -41,8 +47,18 @@ public class JobProducer {
     }
 
     private static Job getImportJob(Transporter transporter, WarehouseModel warehouseModel) {
-        //todo import job
-        System.out.println("import job");
+        List<Shelf> potentialShelves = Arrays.stream(warehouseModel.SHELVES)
+                .filter(shelf -> shelf.getStatus() == EMPTY)
+                .collect(Collectors.toList());
+
+        if (potentialShelves.size() > 0) {
+            Shelf shelf = potentialShelves.get(potentialShelves.size() - 1);
+            shelf.setStatus(WAITING_FOR_IMPORT);
+
+            previousJob = IMPORT;
+            return new ImportJob(transporter, warehouseModel, shelf);
+        }
+
         return null;
     }
 }

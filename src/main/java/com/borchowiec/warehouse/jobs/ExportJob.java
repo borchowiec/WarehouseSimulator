@@ -12,12 +12,8 @@ public class ExportJob extends Job {
     public ExportJob(Transporter transporter, WarehouseModel warehouseModel, Shelf shelf) {
         super(transporter, warehouseModel);
 
-        //todo check position of transporter and then set tasks
-
-        System.out.println(shelf.ID);
-
         double x;
-        double y = (warehouseModel.ROWS * 2) * warehouseModel.TILE_SIZE + warehouseModel.TILE_SIZE / 2.0;;
+        double y = (warehouseModel.ROWS * 2) * warehouseModel.TILE_SIZE + warehouseModel.TILE_SIZE / 2.0;
         if (transporter.getCenterY() < warehouseModel.HEIGHT - warehouseModel.TILE_SIZE) {
             x = warehouseModel.TILE_SIZE / 2.0;
             tasks.add(new GoHorizontallyTask(transporter, x));
@@ -48,20 +44,5 @@ public class ExportJob extends Job {
         tasks.add(new DetachProductTask(transporter));
 
         tasks.add(new GoHorizontallyTask(transporter, warehouseModel.WIDTH - warehouseModel.TILE_SIZE / 2));
-    }
-
-    public boolean doJob() {
-        if (tasks.isEmpty()) {
-            System.out.println(transporter + " finished job");
-            return true;
-        }
-
-        Task task = tasks.peek();
-        boolean done = task.doTask();
-        if (done) {
-            tasks.remove();
-            System.out.println(transporter + " finished task");
-        }
-        return false;
     }
 }

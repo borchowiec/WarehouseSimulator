@@ -18,5 +18,16 @@ public abstract class Job {
         tasks = new LinkedList<>();
     }
 
-    public abstract boolean doJob();
+    public boolean doJob() {
+        if (tasks.isEmpty()) {
+            return true;
+        }
+
+        Task task = tasks.peek();
+        boolean done = task.doTask();
+        if (done) {
+            tasks.remove();
+        }
+        return false;
+    }
 }

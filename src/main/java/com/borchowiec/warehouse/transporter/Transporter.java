@@ -4,9 +4,11 @@ import com.borchowiec.warehouse.WarehouseModel;
 import com.borchowiec.warehouse.jobs.Job;
 import com.borchowiec.warehouse.jobs.JobProducer;
 import com.borchowiec.warehouse.shelves.Product;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +20,7 @@ import java.awt.geom.Rectangle2D;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class Transporter {
+public class Transporter implements ApplicationContextAware {
     private Transporter transporter = this;
 
     private double x;
@@ -35,7 +37,7 @@ public class Transporter {
 
     private WarehouseModel warehouseModel;
     private Job job;
-    private ApplicationContext applicationContext;
+    private ApplicationContext context;
 
     private Arm arm;
 
@@ -164,6 +166,15 @@ public class Transporter {
 
     public Product detachProduct() {
         return arm.detach();
+    }
+
+    public ApplicationContext getContext() {
+        return context;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        context = applicationContext;
     }
 
     private class Arm {
