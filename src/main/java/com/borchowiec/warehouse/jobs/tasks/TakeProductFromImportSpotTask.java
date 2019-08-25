@@ -16,4 +16,9 @@ public class TakeProductFromImportSpotTask extends Task {
         transporter.attachToTheArm(product);
         return true;
     }
+
+    @Override
+    public String getTitle() {
+        return "Taking the product from import spot";
+    }
 }

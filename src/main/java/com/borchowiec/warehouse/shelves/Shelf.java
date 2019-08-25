@@ -1,21 +1,25 @@
 package com.borchowiec.warehouse.shelves;
 
+import com.borchowiec.warehouse.interfaces.Clickable;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 
 import static com.borchowiec.warehouse.shelves.ShelfStatus.*;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class Shelf {
+public class Shelf implements Clickable {
+
+    public final int TILE_SIZE;
+    public final int ID;
     private int X;
     private int Y;
-    private final int TILE_SIZE;
-    public final int ID;
 
     private static int nextId = 0;
 
@@ -72,22 +76,32 @@ public class Shelf {
     }
 
     public void paint(Graphics2D g) {
+        paint(g, X * TILE_SIZE, Y * TILE_SIZE);
+    }
+
+    public void paint(Graphics2D g, int x, int y) {
         g.setColor(EDGE_COLOR);
-        g.fillRect(X * TILE_SIZE, Y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+        g.fillRect(x, y, TILE_SIZE, TILE_SIZE);
         g.setColor(BG_COLOR);
-        g.fillRect(X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH,
+        g.fillRect(x + EDGE_WIDTH, y + EDGE_WIDTH,
                 TILE_SIZE - 2 * EDGE_WIDTH, TILE_SIZE - EDGE_WIDTH);
 
         if (product != null) {
             int space = (TILE_SIZE - product.SIZE) / 2;
-            product.paint(g, X * TILE_SIZE + space, Y * TILE_SIZE + space);
+            product.paint(g, x + space, y + space);
         }
 
         g.setColor(LABEL_COLOR);
-        g.fillRect(X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH, 15, 15);
+        g.fillRect(x + EDGE_WIDTH, y + EDGE_WIDTH, 15, 15);
         g.setColor(FONT_COLOR);
         g.setFont(FONT);
-        g.drawString(String.valueOf(ID), X * TILE_SIZE + EDGE_WIDTH, Y * TILE_SIZE + EDGE_WIDTH + 11);
+        g.drawString(String.valueOf(ID), x + EDGE_WIDTH, y + EDGE_WIDTH + 11);
+    }
+
+    @Override
+    public boolean isClicked(Point2D clickPosition) {
+        Rectangle2D rect = new Rectangle2D.Double(X * TILE_SIZE, Y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+        return rect.contains(clickPosition);
     }
 
     @Override

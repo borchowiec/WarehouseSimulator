@@ -1,10 +1,8 @@
 package com.borchowiec.warehouse.jobs.tasks;
 
-import com.borchowiec.warehouse.shelves.Product;
 import com.borchowiec.warehouse.shelves.Shelf;
 import com.borchowiec.warehouse.transporter.Transporter;
 
-import static com.borchowiec.warehouse.shelves.ShelfStatus.EMPTY;
 import static com.borchowiec.warehouse.shelves.ShelfStatus.HAS_PRODUCT;
 
 public class LeaveProductOnShelfTask extends Task {
@@ -34,5 +32,10 @@ public class LeaveProductOnShelfTask extends Task {
                     return true;
         }
         return false;
+    }
+
+    @Override
+    public String getTitle() {
+        return "Leaving the product on the shelf";
     }
 }

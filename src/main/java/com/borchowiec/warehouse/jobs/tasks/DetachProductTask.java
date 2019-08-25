@@ -12,4 +12,9 @@ public class DetachProductTask extends Task {
         transporter.detachProduct();
         return true;
     }
+
+    @Override
+    public String getTitle() {
+        return "Detaching the product";
+    }
 }

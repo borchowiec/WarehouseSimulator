@@ -58,6 +58,10 @@ public class Product {
         color = COLORS[rand.nextInt(COLORS.length)];
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void paint(Graphics2D g, double x, double y) {
         paint(g, x, y, 0);
     }

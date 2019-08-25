@@ -29,7 +29,7 @@ class WarehouseView {
             shelf.paint(g);
 
         for (Transporter t : warehouseModel.TRANSPORTERS)
-            t.Paint(g);
+            t.paint(g);
 
         g.setColor(EXPORT_COLOR);
         g.fill(warehouseModel.EXPORT_SPOT);

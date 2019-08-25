@@ -13,4 +13,9 @@ public class GoHorizontallyTask extends Task {
     public boolean doTask() {
         return transporter.goTo(x, transporter.getCenterY());
     }
+
+    @Override
+    public String getTitle() {
+        return "Going to (" + x + "|" + transporter.getCenterY()+")";
+    }
 }

@@ -16,4 +16,9 @@ public class GoToTask extends Task {
     public boolean doTask() {
         return transporter.goTo(x, y);
     }
+
+    @Override
+    public String getTitle() {
+        return "Going to (" + x + "|" + y+")";
+    }
 }

@@ -1,5 +1,6 @@
 package com.borchowiec.warehouse.transporter;
 
+import com.borchowiec.warehouse.interfaces.Clickable;
 import com.borchowiec.warehouse.WarehouseModel;
 import com.borchowiec.warehouse.jobs.Job;
 import com.borchowiec.warehouse.jobs.JobProducer;
@@ -13,22 +14,23 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
-import java.awt.geom.Rectangle2D;
+import java.awt.geom.*;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class Transporter implements ApplicationContextAware {
+public class Transporter implements ApplicationContextAware, Clickable {
     private Transporter transporter = this;
 
     private double x;
     private double y;
     private double rotation = 0;
-    private final double SIZE;
+    public final double SIZE;
     private final double SPEED;
     private final int DELAY;
+    private String status;
+
+    private static int nextID = 0;
+    public final int ID;
 
     private Color BG_COLOR = new Color(217, 159, 46);
     private Color BORDER_COLOR = new Color(255, 199, 44);
@@ -47,6 +49,7 @@ public class Transporter implements ApplicationContextAware {
                        @Value("${warehouse.transporter.speed}") double speed,
                        @Value("${warehouse.transporter.delay}") int delay) {
 
+        ID = nextID++;
         SIZE = transportersSize;
         SPEED = speed;
         DELAY = delay;
@@ -79,21 +82,29 @@ public class Transporter implements ApplicationContextAware {
         this.x = x;
     }
 
+    public double getX() {
+        return x;
+    }
+
     public void setY(double y) {
         this.y = y;
     }
 
-    public double getCenterX() {
-        return x + SIZE / 2.0;
+    public double getY() {
+        return y;
     }
-
     public double getCenterY() {
         return y + SIZE / 2.0;
     }
 
-    public void Paint(Graphics2D g) {
-        Rectangle2D rect = new Rectangle2D.Double(x, y, SIZE, SIZE);
-        Line2D line = new Line2D.Double(x - 1, y + 2, x - 1, y + SIZE - 3);
+    public void paint(Graphics2D g) {
+        paint(g, x, y);
+    }
+
+
+    public void paint(Graphics2D g, double aX, double aY) {
+        Rectangle2D rect = new Rectangle2D.Double(aX, aY, SIZE, SIZE);
+        Line2D line = new Line2D.Double(aX - 1, aY + 2, aX - 1, aY + SIZE - 3);
         AffineTransform tx = new AffineTransform();
         tx.rotate(Math.toRadians(rotation), rect.getCenterX(), rect.getCenterY());
 
@@ -108,7 +119,7 @@ public class Transporter implements ApplicationContextAware {
         g.setColor(DETAILS_COLOR);
         g.draw(tx.createTransformedShape(line));
 
-        arm.paint(g);
+        arm.paint(g, aX + SIZE / 2.0, aY + SIZE / 2.0);
     }
 
     public boolean goTo(double destX, double destY) {
@@ -152,10 +163,6 @@ public class Transporter implements ApplicationContextAware {
         this.warehouseModel = warehouseModel;
     }
 
-    public WarehouseModel getWarehouseModel() {
-        return warehouseModel;
-    }
-
     public boolean propoundTheArm(double finalLength) {
         return arm.propound(finalLength);
     }
@@ -177,16 +184,42 @@ public class Transporter implements ApplicationContextAware {
         context = applicationContext;
     }
 
+    @Override
+    public boolean isClicked(Point2D clickPosition) {
+        Rectangle2D rect = new Rectangle2D.Double(x, y, SIZE, SIZE);
+        AffineTransform t = new AffineTransform();
+        t.rotate(Math.toRadians(rotation), rect.getCenterX(), rect.getCenterY());
+
+        return rect.contains(clickPosition);
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public double getArmLength() {
+        return arm.getLength();
+    }
+
+    public double getRotation() {
+        return rotation;
+    }
+
+    public Product getProduct() {
+        return arm.product;
+    }
+
     private class Arm {
         private double length = 0;
         private Color ARM_COLOR = new Color(0, 121, 153);
         private final double RADIUS = 3;
         private Product product;
 
-        public void paint(Graphics2D g) {
-            double centerX = getCenterX();
-            double centerY = getCenterY();
-
+        public void paint(Graphics2D g, double centerX, double centerY) {
             if (product != null)
                 product.paint(g, centerX - product.SIZE / 2.0, centerY - product.SIZE / 2.0 + length, rotation);
 
@@ -197,6 +230,10 @@ public class Transporter implements ApplicationContextAware {
             g.setColor(ARM_COLOR);
             g.draw(line);
             g.fill(circle);
+        }
+
+        private double getLength() {
+            return length;
         }
 
         public boolean propound(double finalLength) {

@@ -10,4 +10,6 @@ public abstract class Task {
     }
 
     public abstract boolean doTask();
+
+    public abstract String getTitle();
 }

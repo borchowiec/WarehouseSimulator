@@ -19,14 +19,15 @@ public abstract class Job {
     }
 
     public boolean doJob() {
-        if (tasks.isEmpty()) {
+        if (tasks.isEmpty())
             return true;
-        }
 
         Task task = tasks.peek();
         boolean done = task.doTask();
         if (done) {
             tasks.remove();
+            if (!tasks.isEmpty())
+                transporter.setStatus(tasks.peek().getTitle());
         }
         return false;
     }

@@ -2,22 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6cf54a6-bd6b-4570-9f65-c3e3bc2a4c02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ImportJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/JobType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/LeaveProductOnShelfTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductFromImportSpotTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/InfoPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/interfaces/Clickable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ExportJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ExportJob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/JobProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/JobProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/DetachProductTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/DetachProductTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoHorizontallyTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoHorizontallyTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoToTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoToTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/LeaveProductOnShelfTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/LeaveProductOnShelfTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductFromImportSpotTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductFromImportSpotTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductOfTheShelfTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductOfTheShelfTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Shelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelfStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelfStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/Transporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/Transporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/settings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/settings.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/jobs/ExportJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/jobs/ExportJob.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/jobs/Job.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/jobs/Job.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/jobs/JobProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/jobs/JobProducer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/AppConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/Warehouse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/Warehouse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/WarehouseView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/WarehouseView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/transporter/Transporter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/transporter/Transporter$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/transporter/Transporter$Arm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/transporter/Transporter$Arm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/transporter/Transporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/borchowiec/warehouse/transporter/Transporter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/settings.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/settings.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,27 +43,15 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="DockManager">
-    <window id="2">
+    <window id="3">
       <content type="file-editors">
         <state>
           <leaf>
             <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ExportJob.java">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/InfoPanel.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="199">
-                    <caret line="15" column="105" lean-forward="true" selection-start-line="15" selection-start-column="105" selection-end-line="15" selection-end-column="105" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductOfTheShelfTask.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="323">
-                    <caret line="19" selection-start-line="19" selection-end-line="36" selection-end-column="21" />
+                  <state relative-caret-position="590">
+                    <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -66,31 +66,153 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ImportJob.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/settings.properties">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/Transporter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/LeaveProductOnShelfTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+            <state relative-caret-position="314">
+              <caret line="211" column="18" selection-start-line="211" selection-start-column="18" selection-end-line="211" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2677#2678#0" expanded="true" />
+                <element signature="e#2701#2702#0" expanded="true" />
+                <element signature="e#2789#2790#0" expanded="true" />
+                <element signature="e#2813#2814#0" expanded="true" />
+                <element signature="e#2779#2780#0" expanded="true" />
+                <element signature="e#2802#2803#0" expanded="true" />
+                <element signature="e#5345#5346#0" expanded="true" />
+                <element signature="e#5375#5376#0" expanded="true" />
+                <element signature="e#5932#5933#0" expanded="true" />
+                <element signature="e#5961#5962#0" expanded="true" />
+                <element signature="e#6005#6006#0" expanded="true" />
+                <element signature="e#6041#6042#0" expanded="true" />
+                <element signature="e#6177#6178#0" expanded="true" />
+                <element signature="e#6201#6202#0" expanded="true" />
+                <element signature="e#6253#6254#0" expanded="true" />
+                <element signature="e#6284#6285#0" expanded="true" />
+                <element signature="e#6316#6317#0" expanded="true" />
+                <element signature="e#6350#6351#0" expanded="true" />
+                <element signature="e#6987#6988#0" expanded="true" />
+                <element signature="e#7024#7025#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="72" column="10" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2208#2209#0" expanded="true" />
+                <element signature="e#2239#2240#0" expanded="true" />
+                <element signature="e#2271#2272#0" expanded="true" />
+                <element signature="e#2302#2303#0" expanded="true" />
+                <element signature="e#2344#2345#0" expanded="true" />
+                <element signature="e#2370#2371#0" expanded="true" />
+                <element signature="e#2416#2417#0" expanded="true" />
+                <element signature="e#2442#2443#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/JobProducer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="58" column="69" lean-forward="true" selection-start-line="58" selection-start-column="69" selection-end-line="58" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Shelf.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="97" column="78" selection-start-line="97" selection-start-column="78" selection-end-line="97" selection-end-column="78" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Product.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="60" selection-start-line="60" selection-end-line="62" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1667#1668#0" expanded="true" />
+                <element signature="e#1694#1695#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ExportJob.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductOfTheShelfTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1241#1242#0" expanded="true" />
+                <element signature="e#1301#1302#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/Job.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/DetachProductTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+              <folding>
+                <element signature="e#204#205#0" expanded="true" />
+                <element signature="e#238#239#0" expanded="true" />
+                <element signature="e#393#394#0" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,6 +225,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -116,33 +239,37 @@
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/view/Painter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/Warehouse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/TransportersFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/AppConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelfStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelvesFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/PrepareProductToExportTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/Task.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoToTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Shelf.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GetProductTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseView.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoToLeftEdgeTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoToLeftTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoLeftTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/DetachProductTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/JobType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/Job.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/JobProducer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/Transporter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductFromImportSpotTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/LeaveProductOnShelfTask.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/settings.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ExportJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ImportJob.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/AppConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/Clickable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/Job.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/DetachProductTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoHorizontallyTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoToTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/LeaveProductOnShelfTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductFromImportSpotTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductOfTheShelfTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/Transporter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelfStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Shelf.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/InfoPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/Warehouse.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/settings.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ExportJob.java" />
       </list>
     </option>
   </component>
@@ -217,17 +344,6 @@
               <item name="borchowiec" type="462c0819:PsiDirectoryNode" />
               <item name="warehouse" type="462c0819:PsiDirectoryNode" />
               <item name="jobs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="warehousesim" type="b2602c69:ProjectViewProjectNode" />
-              <item name="warehousesim" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="borchowiec" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-              <item name="jobs" type="462c0819:PsiDirectoryNode" />
-              <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="warehousesim" type="b2602c69:ProjectViewProjectNode" />
@@ -332,12 +448,12 @@
       <workItem from="1564658652024" duration="10056000" />
       <workItem from="1564920919947" duration="11080000" />
       <workItem from="1566455709138" duration="15028000" />
-      <workItem from="1566544133538" duration="7248000" />
+      <workItem from="1566544133538" duration="15097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58335000" />
+    <option name="totallyTimeSpent" value="66184000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -352,7 +468,7 @@
     <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.254298" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.254298" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -361,7 +477,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32974428" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -472,19 +588,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/job/Job.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/PrepareProductToExportTask.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelvesFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        <state relative-caret-position="144">
+          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ImportJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/TransportersFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="-170">
           <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -492,71 +617,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        <state relative-caret-position="187">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/job/Job.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/Warehouse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/interfaces/Clickable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/PrepareProductToExportTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoHorizontallyTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/DetachProductTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding>
-            <element signature="e#204#205#0" expanded="true" />
-            <element signature="e#238#239#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoToTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="-162">
+          <caret line="19" column="57" lean-forward="true" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -570,103 +663,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoToTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+          <folding>
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/Job.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="44" />
+        <state relative-caret-position="303">
+          <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelfStatus.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/DetachProductTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Shelf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+        <state relative-caret-position="289">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1274#1275#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1323#1324#0" expanded="true" />
-            <element signature="e#1357#1358#0" expanded="true" />
-            <element signature="e#1401#1402#0" expanded="true" />
+            <element signature="e#204#205#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelvesFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/GoHorizontallyTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+        <state relative-caret-position="272">
+          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="69" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/LeaveProductOnShelfTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="56" lean-forward="true" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/JobProducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="58" column="69" lean-forward="true" selection-start-line="58" selection-start-column="69" selection-end-line="58" selection-end-column="69" />
+        <state relative-caret-position="297">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/Transporter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="170" column="44" selection-start-line="170" selection-start-column="44" selection-end-line="170" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1815#2355#0" expanded="true" />
-            <element signature="e#2354#2355#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#2439#2440#0" expanded="true" />
-            <element signature="e#2473#2474#0" expanded="true" />
-            <element signature="e#2499#2500#0" expanded="true" />
-            <element signature="e#2533#2534#0" expanded="true" />
-            <element signature="e#2570#2571#0" expanded="true" />
-            <element signature="e#2604#2605#0" expanded="true" />
-            <element signature="e#2641#2642#0" expanded="true" />
-            <element signature="e#4753#4754#0" expanded="true" />
-            <element signature="e#4805#4806#0" expanded="true" />
-            <element signature="e#4854#4855#0" expanded="true" />
-            <element signature="e#4891#4892#0" expanded="true" />
-            <element signature="e#4948#4949#0" expanded="true" />
-            <element signature="e#4996#4997#0" expanded="true" />
-            <element signature="e#5047#5048#0" expanded="true" />
-            <element signature="e#5082#5083#0" expanded="true" />
-            <element signature="e#5120#5121#0" expanded="true" />
-            <element signature="e#5155#5156#0" expanded="true" />
-            <element signature="e#5375#5376#0" expanded="true" />
-            <element signature="e#6351#6352#0" expanded="true" />
-            <element signature="e#6397#6398#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductFromImportSpotTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+        <state relative-caret-position="357">
+          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/JobProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="58" column="69" lean-forward="true" selection-start-line="58" selection-start-column="69" selection-end-line="58" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -675,20 +750,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/TakeProductOfTheShelfTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="36" selection-end-column="21" />
+        <state relative-caret-position="697">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1301#1302#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="60" selection-start-line="60" selection-end-line="62" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1667#1668#0" expanded="true" />
+            <element signature="e#1694#1695#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/ShelfStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding>
+            <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/shelves/Shelf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="97" column="78" selection-start-line="97" selection-start-column="78" selection-end-line="97" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/tasks/LeaveProductOnShelfTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/InfoPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        <state relative-caret-position="590">
+          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/Warehouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+          <folding>
+            <element signature="e#743#1334#0" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,20 +823,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ExportJob.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/transporter/Transporter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="15" column="105" lean-forward="true" selection-start-line="15" selection-start-column="105" selection-end-line="15" selection-end-column="105" />
+        <state relative-caret-position="314">
+          <caret line="211" column="18" selection-start-line="211" selection-start-column="18" selection-end-line="211" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
+            <element signature="e#2789#2790#0" expanded="true" />
+            <element signature="e#2813#2814#0" expanded="true" />
+            <element signature="e#2779#2780#0" expanded="true" />
+            <element signature="e#2802#2803#0" expanded="true" />
+            <element signature="e#5345#5346#0" expanded="true" />
+            <element signature="e#5375#5376#0" expanded="true" />
+            <element signature="e#5932#5933#0" expanded="true" />
+            <element signature="e#5961#5962#0" expanded="true" />
+            <element signature="e#6005#6006#0" expanded="true" />
+            <element signature="e#6041#6042#0" expanded="true" />
+            <element signature="e#6177#6178#0" expanded="true" />
+            <element signature="e#6201#6202#0" expanded="true" />
+            <element signature="e#6253#6254#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6316#6317#0" expanded="true" />
+            <element signature="e#6350#6351#0" expanded="true" />
+            <element signature="e#6987#6988#0" expanded="true" />
+            <element signature="e#7024#7025#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ImportJob.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/WarehouseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+        <state relative-caret-position="399">
+          <caret line="72" column="10" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2208#2209#0" expanded="true" />
+            <element signature="e#2239#2240#0" expanded="true" />
+            <element signature="e#2271#2272#0" expanded="true" />
+            <element signature="e#2302#2303#0" expanded="true" />
+            <element signature="e#2344#2345#0" expanded="true" />
+            <element signature="e#2370#2371#0" expanded="true" />
+            <element signature="e#2416#2417#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/borchowiec/warehouse/jobs/ExportJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

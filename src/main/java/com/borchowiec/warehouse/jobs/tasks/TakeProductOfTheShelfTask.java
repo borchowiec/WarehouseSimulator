@@ -36,4 +36,9 @@ public class TakeProductOfTheShelfTask extends Task {
         }
         return false;
     }
+
+    @Override
+    public String getTitle() {
+        return "Taking the product from the shelf";
+    }
 }

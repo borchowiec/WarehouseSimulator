@@ -1,5 +1,18 @@
 package com.borchowiec.warehouse.shelves;
 
 public enum ShelfStatus {
-    EMPTY, HAS_PRODUCT, WAITING_FOR_IMPORT, WAITING_FOR_EXPORT
+    EMPTY("Empty"),
+    HAS_PRODUCT("Has product"),
+    WAITING_FOR_IMPORT("Waiting for import"),
+    WAITING_FOR_EXPORT("Waiting for export");
+
+    private final String displayName;
+
+    ShelfStatus(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
 }
