@@ -19,7 +19,7 @@ class WarehouseModel {
     public final Shelf[] SHELVES;
     public final int ROWS;
     public final int COLS;
-    final Transporter[] TRANSPORTERS;
+    public final Transporter[] TRANSPORTERS;
     public final Rectangle2D EXPORT_SPOT;
     public final Rectangle2D IMPORT_SPOT;
 

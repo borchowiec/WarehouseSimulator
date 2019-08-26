@@ -5,6 +5,7 @@ import com.borchowiec.warehouse.WarehouseModel;
 import com.borchowiec.warehouse.jobs.Job;
 import com.borchowiec.warehouse.jobs.JobProducer;
 import com.borchowiec.warehouse.shelves.Product;
+import org.omg.CORBA.TRANSACTION_MODE;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -93,6 +94,11 @@ public class Transporter implements ApplicationContextAware, Clickable {
     public double getY() {
         return y;
     }
+
+    public double getCenterX() {
+        return x + SIZE / 2.0;
+    }
+
     public double getCenterY() {
         return y + SIZE / 2.0;
     }
@@ -129,16 +135,18 @@ public class Transporter implements ApplicationContextAware, Clickable {
         double aY = rect.getCenterY() - destY;
         double distance = Math.sqrt(aX * aX + aY * aY);
 
+        //angle range
         if (rotation < -180)
             rotation += 360;
         else if (rotation > 180)
             rotation -= 360;
 
+        //if distance is less than speed, set destination's coordinates
         if (distance <= SPEED) {
             x = destX - SIZE / 2.0;
             y = destY - SIZE / 2.0;
             return true;
-        }
+        } //rotate
         else if (rotation != angle) {
             if (Math.abs(rotation - angle) <= SPEED)
                 rotation = angle;
@@ -151,12 +159,28 @@ public class Transporter implements ApplicationContextAware, Clickable {
                     rotation -= SPEED;
                 else rotation += SPEED;
             }
-        }
+        } //move
         else {
-            x -= Math.cos(Math.toRadians(rotation)) * SPEED;
-            y -= Math.sin(Math.toRadians(rotation)) * SPEED;
+            //collision detection
+            boolean collide = false;
+            for (Transporter t : warehouseModel.TRANSPORTERS) {
+                if (!t.equals(this) && getDetector().intersects(t.getRectangle())) {
+                    collide = true;
+                    break;
+                }
+            }
+
+            //if doesn't collide, move
+            if (!collide) {
+                x -= Math.cos(Math.toRadians(rotation)) * SPEED;
+                y -= Math.sin(Math.toRadians(rotation)) * SPEED;
+            }
         }
         return false;
+    }
+
+    private Rectangle2D getRectangle() {
+        return new Rectangle2D.Double(x, y, SIZE, SIZE);
     }
 
     public void setWarehouseModel(WarehouseModel warehouseModel) {
@@ -182,6 +206,12 @@ public class Transporter implements ApplicationContextAware, Clickable {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         context = applicationContext;
+    }
+
+    public Shape getDetector() {
+        AffineTransform transform = new AffineTransform();
+        transform.rotate(Math.toRadians(rotation), getCenterX(), getCenterY());
+        return transform.createTransformedShape(new Rectangle2D.Double(x - SIZE, y, SIZE, SIZE));
     }
 
     @Override

@@ -44,6 +44,10 @@ class WarehouseView {
                     g.drawRect(x, y, warehouseModel.TILE_SIZE - 1, warehouseModel.TILE_SIZE - 1);
                 }
             }
+
+            g.setColor(Color.WHITE);
+            for (Transporter t : warehouseModel.TRANSPORTERS)
+                g.draw(t.getDetector());
         }
     }
 }
