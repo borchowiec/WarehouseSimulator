@@ -164,7 +164,7 @@ public class Transporter implements ApplicationContextAware, Clickable {
             //collision detection
             boolean collide = false;
             for (Transporter t : warehouseModel.TRANSPORTERS) {
-                if (!t.equals(this) && getDetector().intersects(t.getRectangle())) {
+                if (t != null && !t.equals(this) && getDetector().intersects(t.getRectangle())) {
                     collide = true;
                     break;
                 }

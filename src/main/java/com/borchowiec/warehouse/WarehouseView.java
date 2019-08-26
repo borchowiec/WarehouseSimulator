@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 @Service
 class WarehouseView {
@@ -31,11 +32,8 @@ class WarehouseView {
         for (Transporter t : warehouseModel.TRANSPORTERS)
             t.paint(g);
 
-        g.setColor(EXPORT_COLOR);
-        g.fill(warehouseModel.EXPORT_SPOT);
-
-        g.setColor(IMPORT_COLOR);
-        g.fill(warehouseModel.IMPORT_SPOT);
+        paintSpot(g, EXPORT_COLOR, warehouseModel.EXPORT_SPOT, "EXPORT");
+        paintSpot(g, IMPORT_COLOR, warehouseModel.IMPORT_SPOT, "IMPORT");
 
         if (devView) {
             g.setColor(TILE_EDGE);
@@ -49,5 +47,19 @@ class WarehouseView {
             for (Transporter t : warehouseModel.TRANSPORTERS)
                 g.draw(t.getDetector());
         }
+    }
+
+    private void paintSpot(Graphics2D g, Color color, Rectangle2D rect, String label) {
+        double border = 5;
+
+        g.setColor(color);
+        g.fill(rect);
+
+        g.setColor(color.darker());
+        g.fill(new Rectangle2D.Double(rect.getX() + border, rect.getY() + border,
+                rect.getWidth() - 2 * border, rect.getHeight() - 2 * border));
+
+        g.setColor(color);
+        g.drawString(label, (int) (rect.getX() + border + 1), (int) (rect.getY() + border + 11));
     }
 }
