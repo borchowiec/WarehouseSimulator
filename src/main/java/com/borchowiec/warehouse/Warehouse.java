@@ -78,4 +78,18 @@ public class Warehouse extends JPanel {
         else if (clickedObject instanceof Shelf)
             infoPanel.paint(g2, (Shelf) clickedObject);
     }
+
+    /**
+     * @return Current warehouse model.
+     */
+    public WarehouseModel getWarehouseModel() {
+        return warehouseModel;
+    }
+
+    /**
+     * @return Current info panel.
+     */
+    public InfoPanel getInfoPanel() {
+        return infoPanel;
+    }
 }

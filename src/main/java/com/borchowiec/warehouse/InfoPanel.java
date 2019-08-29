@@ -18,7 +18,7 @@ import java.awt.geom.Rectangle2D;
 public class InfoPanel {
     private final double X;
     private final double Y;
-    final double WIDTH;
+    public final double WIDTH;
     final double HEIGHT;
     private final Rectangle2D BG_RECT;
 
