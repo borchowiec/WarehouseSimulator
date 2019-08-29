@@ -5,9 +5,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+/**
+ * This class starts application. Creates frame and sets the {@link Warehouse} panel.
+ * @author Patryk Borchowiec
+ */
 public class MainController {
     public static void main(String[] args) {
 
@@ -24,11 +26,8 @@ public class MainController {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        Timer timer = new Timer(10, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                warehouse.repaint();
-            }
-        });
+        //infinite loop that repaints application
+        Timer timer = new Timer(10, e -> warehouse.repaint());
         timer.start();
     }
 }

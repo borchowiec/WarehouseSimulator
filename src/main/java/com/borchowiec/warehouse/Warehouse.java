@@ -10,8 +10,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Dimension2D;
 
+/**
+ * This class represents warehouse. Contains methods that e.g. handle click events. Sets up transporters and shelves.
+ * @author Patryk Borchowiec
+ */
 @Controller
 public class Warehouse extends JPanel {
     @Autowired
@@ -23,6 +26,10 @@ public class Warehouse extends JPanel {
 
     private Object clickedObject;
 
+    /**
+     * Main constructor. Sets up mouse listener which checks if the transporter or shelf was clicked. If so, the
+     * information about it is displaying.
+     */
     public Warehouse() {
         this.addMouseListener(new MouseAdapter() {
             @Override
@@ -44,6 +51,9 @@ public class Warehouse extends JPanel {
         });
     }
 
+    /**
+     * This method sets sizes of warehouse in {@link WarehouseModel}.
+     */
     @PostConstruct
     private void setDimensions() {
         Dimension d = new Dimension((int) (warehouseModel.WIDTH + infoPanel.WIDTH), warehouseModel.HEIGHT);
@@ -52,6 +62,10 @@ public class Warehouse extends JPanel {
         this.setMaximumSize(d);
     }
 
+    /**
+     * This method paints warehouse and every elements that warehouse contains such as transporters.
+     * @param g Graphic that draws warehouse and elements.
+     */
     @Override
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;

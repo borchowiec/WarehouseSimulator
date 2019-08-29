@@ -10,10 +10,15 @@ import org.springframework.stereotype.Component;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This class is responsible for creating list of transporters. Count of transporters is getting from properties.
+ * @author Patryk Borchowiec
+ */
 @Component("transportersList")
 public class TransportersFactory implements FactoryBean<List<Transporter>>, ApplicationContextAware {
 
     private ApplicationContext context;
+
     @Value("${warehouse.tile.size}")
     private int tileSize;
 
@@ -24,7 +29,7 @@ public class TransportersFactory implements FactoryBean<List<Transporter>>, Appl
     int amount;
 
     public List<Transporter> getObject() throws Exception {
-        List<Transporter> list = new LinkedList<Transporter>();
+        List<Transporter> list = new LinkedList<>();
 
         for (int i = 0; i < amount; i++) {
             Transporter transporter = context.getBean("transporter", Transporter.class);

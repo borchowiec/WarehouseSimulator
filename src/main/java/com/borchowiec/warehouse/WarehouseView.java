@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * This class is responsible for drawing warehouse and warehouse's elements.
+ * @author Patryk Borchowiec
+ */
 @Service
 class WarehouseView {
     @Autowired
@@ -22,6 +26,10 @@ class WarehouseView {
     private final Color EXPORT_COLOR = new Color(255, 21, 82);
     private final Color IMPORT_COLOR = new Color(76, 214, 33);
 
+    /**
+     * This method paints warehouse and warehouse's elements.
+     * @param g Graphic that paints warehouse.
+     */
     public void paint(Graphics2D g) {
         g.setColor(BG_COLOR);
         g.fillRect(0, 0, warehouseModel.WIDTH, warehouseModel.HEIGHT);
@@ -49,6 +57,13 @@ class WarehouseView {
         }
     }
 
+    /**
+     * This method paints spots such as export spot or import spot.
+     * @param g Graphic that draws spot.
+     * @param color Color of spot.
+     * @param rect Rectangle that has sizes and position of spot.
+     * @param label Label that will be displayed on spot.
+     */
     private void paintSpot(Graphics2D g, Color color, Rectangle2D rect, String label) {
         double border = 5;
 

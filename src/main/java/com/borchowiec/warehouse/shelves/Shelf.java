@@ -12,6 +12,10 @@ import java.awt.geom.Rectangle2D;
 
 import static com.borchowiec.warehouse.shelves.ShelfStatus.*;
 
+/**
+ * This class represents shelf that can store products.
+ * @author Patryk Borchowiec
+ */
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class Shelf implements Clickable {
@@ -28,58 +32,107 @@ public class Shelf implements Clickable {
     private final Color EDGE_COLOR = new Color(174, 132, 32);
     private final Color FONT_COLOR = new Color(255, 232, 101);
     private final Color LABEL_COLOR = new Color(229, 176, 41);
-    private final int EDGE_WIDTH = 5;
 
     private Product product;
     private ShelfStatus status;
 
+    /**
+     * Main constructor
+     * @param tileSize Size of the tiles. Shelf has same size as size of tile.
+     */
     public Shelf(@Value("${warehouse.tile.size}") int tileSize) {
         status = EMPTY;
         TILE_SIZE = tileSize;
         ID = nextId++;
     }
 
+    /**
+     * This method sets x tile of warehouse. It's not coordinate!. Whole warehouse is divided on tiles.
+     * @param x X tile of warehouse.
+     */
     public void setX(int x) {
         X = x;
     }
 
+    /**
+     * This method sets y tile of warehouse. It's not coordinate!. Whole warehouse is divided on tiles.
+     * @param y Y tile of warehouse.
+     */
     public void setY(int y) {
         Y = y;
     }
 
+    /**
+     * This method returns x tile of warehouse. It's not coordinate!. Whole warehouse is divided on tiles.
+     * @return x tile of warehouse.
+     */
     public int getX() {
         return X;
     }
 
+    /**
+     * This method returns x tile of warehouse. It's not coordinate!. Whole warehouse is divided on tiles.
+     * @return y tile of warehouse.
+     */
     public int getY() {
         return Y;
     }
 
+    /**
+     * This method returns the center y COORDINATE. It's coordinate, not tile.
+     * @return the center y coordinate.
+     */
     public double getCenterY() {
         return (Y + 0.5) * TILE_SIZE;
     }
 
+    /**
+     * @return Product that is on shelf. If there is no product, returns null.
+     */
     public Product getProduct() {
         return product;
     }
 
+    /**
+     * Set product on the shelf.
+     * @param product The product that will be stored on shelf.
+     */
     public void setProduct(Product product) {
         this.product = product;
     }
 
+    /**
+     * @return Shelf's status.
+     */
     public ShelfStatus getStatus() {
         return status;
     }
 
+    /**
+     * This method sets status of shelf.
+     * @param status Status of shelf.
+     */
     public void setStatus(ShelfStatus status) {
         this.status = status;
     }
 
+    /**
+     * This method draws shelf.
+     * @param g Graphic that draws the shelf.
+     */
     public void paint(Graphics2D g) {
         paint(g, X * TILE_SIZE, Y * TILE_SIZE);
     }
 
+    /**
+     * This method draws shelf at specific coordinates.
+     * @param g Graphic that draws the shelf.
+     * @param x X coordinate where the shelf will be drawn.
+     * @param y Y coordinate where the shelf will be drawn.
+     */
     public void paint(Graphics2D g, int x, int y) {
+        int EDGE_WIDTH = 5;
+
         g.setColor(EDGE_COLOR);
         g.fillRect(x, y, TILE_SIZE, TILE_SIZE);
         g.setColor(BG_COLOR);

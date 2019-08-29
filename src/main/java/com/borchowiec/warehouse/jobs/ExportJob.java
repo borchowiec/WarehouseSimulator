@@ -7,13 +7,25 @@ import com.borchowiec.warehouse.transporter.Transporter;
 
 import java.awt.geom.Rectangle2D;
 
+/**
+ * This class is responsible for exporting product from warehouse.
+ * @author Patryk Borchowiec
+ */
 public class ExportJob extends Job {
 
+    /**
+     * Main constructor.
+     * @param transporter Transporter that will be exporting the product.
+     * @param warehouseModel Current warehouse model.
+     * @param shelf Shelf from which the product will be taken
+     */
     public ExportJob(Transporter transporter, WarehouseModel warehouseModel, Shelf shelf) {
         super(transporter, warehouseModel);
 
         double x;
         double y = (warehouseModel.ROWS * 2) * warehouseModel.TILE_SIZE + warehouseModel.TILE_SIZE / 2.0;
+
+        //creating list of tasks
         if (transporter.getCenterY() < warehouseModel.HEIGHT - warehouseModel.TILE_SIZE) {
             x = warehouseModel.TILE_SIZE / 2.0;
             tasks.add(new GoHorizontallyTask(transporter, x));

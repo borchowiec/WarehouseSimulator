@@ -1,19 +1,32 @@
 package com.borchowiec.warehouse.jobs;
 
 import com.borchowiec.warehouse.WarehouseModel;
-import com.borchowiec.warehouse.jobs.tasks.*;
+import com.borchowiec.warehouse.jobs.tasks.GoHorizontallyTask;
+import com.borchowiec.warehouse.jobs.tasks.GoToTask;
+import com.borchowiec.warehouse.jobs.tasks.LeaveProductOnShelfTask;
+import com.borchowiec.warehouse.jobs.tasks.TakeProductFromImportSpotTask;
 import com.borchowiec.warehouse.shelves.Shelf;
 import com.borchowiec.warehouse.transporter.Transporter;
-import org.springframework.context.ApplicationContext;
 
+/**
+ * This class is responsible for importing product to the closest, free shelf.
+ * @author Patryk Borchowiec
+ */
 public class ImportJob extends Job {
 
+    /**
+     * Main constructor.
+     * @param transporter Transporter that will be importing the product.
+     * @param warehouseModel Current warehouse model.
+     * @param shelf The destination shelf for a product.
+     */
     public ImportJob(Transporter transporter, WarehouseModel warehouseModel, Shelf shelf) {
         super(transporter, warehouseModel);
 
         double x;
         double y;
 
+        //creating list of tasks
         if (transporter.getCenterY() >= warehouseModel.HEIGHT - warehouseModel.TILE_SIZE) {
             x = warehouseModel.WIDTH - warehouseModel.TILE_SIZE / 2.0;
             y = warehouseModel.HEIGHT - warehouseModel.TILE_SIZE * 2.5;

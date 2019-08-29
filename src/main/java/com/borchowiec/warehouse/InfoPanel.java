@@ -9,12 +9,17 @@ import org.springframework.stereotype.Component;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * This class is responsible for displaying information about transporters, shelves etc. Information displays on the
+ * right side of window.
+ * @author Patryk Borchowiec
+ */
 @Component
 public class InfoPanel {
-    public final double X;
-    public final double Y;
-    public final double WIDTH;
-    public final double HEIGHT;
+    private final double X;
+    private final double Y;
+    final double WIDTH;
+    final double HEIGHT;
     private final Rectangle2D BG_RECT;
 
     private final Color BG_COLOR = new Color(44, 125, 160);
@@ -23,6 +28,13 @@ public class InfoPanel {
     private final Font FONT_BOLD = new Font("SansSerif", Font.BOLD, FONT_SIZE);
     private final Font FONT_PLAIN = new Font("SansSerif", Font.PLAIN, FONT_SIZE);
 
+    /**
+     * Main constructor
+     * @param x X position of panel. Should be end of the warehouse (size of warehouse).
+     * @param y Y position of panel. Should be top of the screen (0).
+     * @param WIDTH Width of panel.
+     * @param HEIGHT Height of panel. Should be same as height of warehouse.
+     */
     public InfoPanel(@Value("${warehouse.width}") double x,
                      @Value("0") double y,
                      @Value("${infopanel.width}") double WIDTH,
@@ -35,11 +47,20 @@ public class InfoPanel {
         BG_RECT = new Rectangle2D.Double(X, Y, WIDTH, HEIGHT);
     }
 
+    /**
+     * This method paints empty info panel.
+     * @param g Graphic that draws panel.
+     */
     public void paint(Graphics2D g) {
         g.setColor(BG_COLOR);
         g.fill(BG_RECT);
     }
 
+    /**
+     * This method paints info panel that contains information about given transporter.
+     * @param g Graphic that draws panel.
+     * @param transporter Transporter whose information will be displayed on the info panel.
+     */
     public void paint(Graphics2D g, Transporter transporter) {
         paint(g);
         double x = X + (WIDTH - transporter.SIZE) / 2;
@@ -59,6 +80,11 @@ public class InfoPanel {
 
     }
 
+    /**
+     * This method paints info panel that contains information about given shelf.
+     * @param g Graphic that draws panel.
+     * @param shelf Shelf whose information will be displayed on the info panel.
+     */
     public void paint(Graphics2D g, Shelf shelf) {
         paint(g);
         double x = X + (WIDTH - shelf.TILE_SIZE) / 2;
@@ -75,6 +101,15 @@ public class InfoPanel {
             drawProperty(g,350, 60, "Product", product.getName());
     }
 
+    /**
+     * This method draws property in specific pattern:
+     * <code>property</code>: (space) <code>value</code>
+     * @param g Graphic that draws property.
+     * @param y Position y where the property will be drawn.
+     * @param space Space between property and value.
+     * @param property Title of property.
+     * @param value Value of property.
+     */
     private void drawProperty(Graphics2D g, int y, int space, String property, String value) {
         g.setColor(FONT_COLOR);
         g.setFont(FONT_BOLD);

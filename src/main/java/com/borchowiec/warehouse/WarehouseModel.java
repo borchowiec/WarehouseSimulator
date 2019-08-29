@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 import java.awt.geom.Rectangle2D;
 import java.util.List;
 
+/**
+ * This class contains information about warehouse such as sizes, transporters, shelves etc.
+ * @author Patryk Borchowiec
+ */
 @Service
 public
 class WarehouseModel {
@@ -23,6 +27,19 @@ class WarehouseModel {
     public final Rectangle2D EXPORT_SPOT;
     public final Rectangle2D IMPORT_SPOT;
 
+    /**
+     * @param width Width of the warehouse.
+     * @param height Height of the warehouse.
+     * @param tileSize Size of the tile. Whole warehouse is divided on tiles. You can see it if you set devView property
+     *                 on true in settings.properties file.
+     * @param shelvesList List that contains shelves. You can get it from
+     *                 {@link com.borchowiec.warehouse.shelves.ShelvesFactory shelves factory}.
+     * @param rows Count of tile's rows.
+     * @param cols Count of tile's columns.
+     * @param transportersList List that contains transporters.
+     * @param exportCol Tile's column of spot where the products are exported.
+     * @param importCol Tile's column of spot where the products are imported.
+     */
     WarehouseModel(@Value("${warehouse.width}") int width, @Value("${warehouse.height}") int height,
                    @Value("${warehouse.tile.size}") int tileSize,
                    @Autowired @Qualifier("shelvesList") List<Shelf> shelvesList,

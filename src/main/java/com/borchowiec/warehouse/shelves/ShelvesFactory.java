@@ -11,6 +11,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * This class is responsible for creating list of shelves. Based on count of columns and rows, it decide how many
+ * shelves should be or where specific shelf should be placed. Some random shelves can gets a product.
+ * @author Patry Borchowiec
+ */
 @Component("shelvesList")
 public class ShelvesFactory implements FactoryBean<List<Shelf>>, ApplicationContextAware {
     private ApplicationContext context;
@@ -22,7 +27,7 @@ public class ShelvesFactory implements FactoryBean<List<Shelf>>, ApplicationCont
     int rows;
 
     public List<Shelf> getObject() throws Exception {
-        List<Shelf> list = new LinkedList<Shelf>();
+        List<Shelf> list = new LinkedList<>();
         Random rand = new Random();
         for (int y = 0; y < rows; y++) {
             for (int x = 0; x < cols; x++) {
